@@ -19,12 +19,17 @@ class Player
   end
 
   def draw
-    if Input.key_push?(K_SPACE) && @jumpcount < 2
-      if @body.v.y.to_i == 0
-        @jumpcount = 0
-      end
-      @body.v = CP::Vec2.new(0,-100)
-      @jumpcount += 1
+    puts @body.v.x.to_i
+    if Input.key_push?(K_SPACE)&&@body.v.y.to_i == 0
+      @body.v.y += -100
+    end
+    puts @body.v.y.to_i
+    if Input.key_down?(K_RIGHT)
+      @body.v.x += 5
+    elsif Input.key_down?(K_LEFT)
+      @body.v.x -= 5
+    elsif  @body.v.y.to_i == 0
+      @body.v.x = 0
     end
     Window.draw(@body.p.x - @r, @body.p.y - @r, @player)
   end
