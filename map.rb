@@ -8,6 +8,8 @@ space = CP::Space.new
 speed=1/60.0
 Window.width = 1000
 Window.height = 600
+objects=[]
+
 
 class Map
   # map1 = Mapfile.new(1)
