@@ -27,17 +27,7 @@ number = course.to_i
 
 0.upto(number + 1) do |num|
   p num + 1
-  objects=map.put
-  # コース画面
-  Window.loop do
-    space.step(speed)
-    objects.each do |obj|
-      obj.draw
-    end
-    break if Input.key_push?(K_RETURN)
-    Window.draw_font(500, 280, "Hello World", font)
-
-  end
+  map.put(num)
 end
 
 # ボス画面
