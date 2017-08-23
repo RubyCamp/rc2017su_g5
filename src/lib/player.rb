@@ -30,6 +30,7 @@ class Player < CPCircle
   end
 
   def draw #主人公の動き
+    p "hogehoge"
     if Input.key_push?(K_SPACE)&&@body.v.y.to_i == 0
       @body.v.y += -150#ジャンプ力
     end
@@ -37,9 +38,9 @@ class Player < CPCircle
       @body.v.x += 1
     elsif Input.key_down?(K_LEFT)
       @body.v.x -= 1
-    else
-      @body.v.x = 0
     end
+    p @body.p.x
+    p @body.p.y
     Window.draw(@body.p.x - @r, @body.p.y - @r, @player)
   end
 end

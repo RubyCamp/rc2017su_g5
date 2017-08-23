@@ -1,5 +1,10 @@
 require 'dxruby'
 require 'chipmunk'
+require_relative 'src/lib/cp_static_box'
+require_relative 'src/lib/cp_base'
+require_relative 'src/lib/cp_circle'
+require_relative 'src/lib/player'
+require_relative 'src/hits'
 
 require_relative 'mapfile'
 require_relative 'map_display'
@@ -9,8 +14,6 @@ Window.height = 600
 
 
 @space = CP::Space.new
-objects=[]
-
 
 class Map
 
@@ -26,6 +29,11 @@ class Map
     arr = Array.new(100).map{Array.new(60,0)}
     arr=map1.map
     objects=[]
+    # space = CP::Space.new
+
+    objects=[]
+
+    player = Player.new(100,540, 16) #space)
 
     60.times do |i|
       100.times do |j|
@@ -41,13 +49,18 @@ class Map
       end
     end
 
+    player.add_to(@space)
+    objects << player
+
+    hits = Hits.new(@space)
+
     Window.loop do
-    @space.step(SPEED)
-    objects.each do |obj|
-      obj.draw
-    end
-    break if Input.key_push?(K_RETURN)
-    Window.draw_font(500, 280, "Hello World", Font.new(16))
+      @space.step(SPEED)
+      objects.each do |obj|
+        obj.draw
+      end
+      break if Input.key_push?(K_RETURN)
+      Window.draw_font(500, 280, "Hello World", Font.new(16))
     end
   end
 end
