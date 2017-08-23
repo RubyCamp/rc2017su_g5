@@ -15,6 +15,7 @@ class Map
     arr=map1.map
     objects=[]
     space = CP::Space.new
+    speed=1/60.0
 
 
     60.times do |i|
