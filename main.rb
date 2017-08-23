@@ -26,18 +26,12 @@ end
 
 number = course.to_i
 
-0.upto(number + 1) do |num|
+0.upto(number + 4) do |num|
   p num + 1
   map.put(num)
   map.delete
 end
 
-# ボス画面
-Window.loop do
-  break if Input.key_push?(K_RETURN)
-  Window.draw_font(500, 280, "ボス対戦", font)
-
-end
 
 # 結果発表
 Window.loop do
