@@ -1,5 +1,5 @@
 class CPStaticBox
-  DEFAULT_COLLISION_TYPE = 2
+  DEFAULT_COLLISION_TYPE = 1
   def initialize(x, y, w, h, space)
     @x, @y = x, y
     @image = Image.new(w, h, C_WHITE)
@@ -12,8 +12,9 @@ class CPStaticBox
       CP::Vec2.new(x + w, y)      # 第４頂点（右上）
     ]
     @shape = CP::Shape::Poly.new(@body, verts, CP::Vec2.new(0, 0))
-    @shape.e = 1.0
+    @shape.e = 0.0
     @shape.u = 0.0
+    @shape.collision_type = DEFAULT_COLLISION_TYPE
     @shape.add_to_space(space)
   end
 
