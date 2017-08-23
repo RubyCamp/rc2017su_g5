@@ -27,7 +27,7 @@ number = course.to_i
 
 0.upto(number + 1) do |num|
   p num + 1
-  map.put(objects)
+  objects=map.put
   # コース画面
   Window.loop do
     space.step(speed)

@@ -6,7 +6,7 @@ require_relative 'map_display'
 
 class Map
 
-  def put (objects)#読み込む
+  def put#読み込む
     map1 = Mapfile.new(1)
     arr = Array.new(100).map{Array.new(60,0)}
     arr=map1.map
