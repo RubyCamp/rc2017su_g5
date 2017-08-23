@@ -17,6 +17,9 @@ class Wall
     @shape = CP::Shape::Poly.new(@body, verts, CP::Vec2.new(0, 0))
     @shape.e = 1.0
     @shape.u = 0.0
+    puts "======"
+    puts @shape
+    puts space == nil
     @shape.add_to_space(space)
 
     def draw
@@ -26,7 +29,7 @@ class Wall
 end
 
 class Goal
-  def initialize()
+  def initialize(x, y, space)
     @x, @y = x, y
     @image = Image.new(10, 10, C_RED) #画像を読み込む形に差し替えお願いします
     @body = CP::StaticBody.new

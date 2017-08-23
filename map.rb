@@ -7,12 +7,19 @@ require_relative 'map_display'
 Window.width = 1000
 Window.height = 600
 
-speed=1/60.0
-space = CP::Space.new
+
+@space = CP::Space.new
 objects=[]
 
 
 class Map
+
+  SPEED=1/60.0
+
+
+  def initialize(space)
+    @space = space
+  end
 
   def put(num)#読み込む
     map1 = Mapfile.new(num)
@@ -27,20 +34,20 @@ class Map
         when 0 then
           #null
         when 1 then
-          objects << Wall.new(i*10, j*10 ,space)
+          objects << Wall.new(j*10, i*10 ,@space)
         when 2 then
-          objects << Goal.new(i*10, j*10 ,space)
+          objects << Goal.new(j*10, i*10 ,@space)
         end
       end
     end
 
     Window.loop do
-    space.step(speed)
+    @space.step(SPEED)
     objects.each do |obj|
       obj.draw
     end
     break if Input.key_push?(K_RETURN)
-    Window.draw_font(500, 280, "Hello World", font)
+    Window.draw_font(500, 280, "Hello World", Font.new(16))
     end
   end
 end

@@ -6,7 +6,6 @@ require_relative 'map'
 
 filecounter = Filecounter.new
 course = filecounter.counter
-map = Map.new
 
 Window.width = 1000
 Window.height = 600
@@ -14,11 +13,12 @@ space = CP::Space.new
 speed=1/60.0
 objects=[]
 
+map = Map.new(space)
+
 font = Font.new(16)
 
 # スタート画面
 Window.loop do
-
   exit if Input.key_push?(K_ESCAPE)
   break if Input.key_push?(K_RETURN)
 end
@@ -32,7 +32,6 @@ end
 
 # ボス画面
 Window.loop do
-
   break if Input.key_push?(K_RETURN)
   Window.draw_font(500, 280, "ボス対戦", font)
 
