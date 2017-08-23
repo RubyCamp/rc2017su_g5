@@ -45,6 +45,8 @@ class Map
           objects << Wall.new(j*10, i*10 ,@space)
         when 2 then
           objects << Goal.new(j*10, i*10 ,@space)
+        when 2 then
+          objects << Switch1.new(j*10, i*10 ,@space)
         end
       end
     end
