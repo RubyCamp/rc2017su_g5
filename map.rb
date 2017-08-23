@@ -10,6 +10,7 @@ class Map
     map1 = Mapfile.new(1)
     arr = Array.new(100).map{Array.new(60,0)}
     arr=map1.map
+    objects=[]
 
     60.times do |i|
       100.times do |j|
