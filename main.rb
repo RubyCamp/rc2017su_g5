@@ -11,7 +11,6 @@ Window.width = 1000
 Window.height = 600
 space = CP::Space.new
 speed=1/60.0
-objects=[]
 
 map = Map.new(space)
 
@@ -26,7 +25,7 @@ end
 number = course.to_i
 
 0.upto(number + 1) do |num|
-  p num + 1
+  # p num + 1
   map.put(num)
 end
 

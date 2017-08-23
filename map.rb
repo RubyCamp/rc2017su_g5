@@ -30,8 +30,7 @@ class Map
     arr=map1.map
     objects=[]
     # space = CP::Space.new
-
-    objects=[]
+    objects.clear
 
     player = Player.new(100,540, 16) #space)
 
