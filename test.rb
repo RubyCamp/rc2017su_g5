@@ -1,11 +1,10 @@
+require 'dxruby'
+require 'chip'
+
 require_relative 'mapfile.rb'
 
-class Test
-  def test
-    map = Mapfile.new(1)
-    p map.map
-  end
-end
+map = Wall.new(100, 100, )
 
-test = Test.new
-test.test
+Window.loop do
+
+end
