@@ -4,6 +4,11 @@ require 'chipmunk'
 require_relative 'mapfile'
 require_relative 'map_display'
 
+space = CP::Space.new
+speed=1/60.0
+Window.width = 1000
+Window.height = 600
+
 class Map
   # map1 = Mapfile.new(1)
   # arr = Array.new(100).map{Array.new(60,0)}
@@ -14,9 +19,6 @@ class Map
     arr = Array.new(100).map{Array.new(60,0)}
     arr=map1.map
     objects=[]
-    space = CP::Space.new
-    speed=1/60.0
-
 
     60.times do |i|
       100.times do |j|
