@@ -5,7 +5,7 @@ class Wall
   
   def initialize(x, y, space)
     @x, @y = x, y
-    @image = image = Image.load('wall.png')
+    @image =Image.load('wall.png')
     @body = CP::StaticBody.new
     @body.p = CP::Vec2.new(0, 0)
     verts = [
@@ -31,7 +31,7 @@ end
 class Goal
   def initialize(x, y, space)
     @x, @y = x, y
-    @image = Image.new(10, 10, C_RED) #画像を読み込む形に差し替えお願いします
+    @image =Image.load('goal.png')
     @body = CP::StaticBody.new
     @body.p = CP::Vec2.new(0, 0)
     verts = [
@@ -47,6 +47,6 @@ class Goal
   end
 
   def draw
-    Window.draw(@x, @y, @image)
+    Window.draw_add(@x, @y, @image)
   end
 end
