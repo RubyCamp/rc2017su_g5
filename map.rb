@@ -4,23 +4,12 @@ require 'chipmunk'
 require_relative 'mapfile'
 require_relative 'map_display'
 
-space = CP::Space.new
-speed=1/60.0
-Window.width = 1000
-Window.height = 600
-objects=[]
-
-
 class Map
-  # map1 = Mapfile.new(1)
-  # arr = Array.new(100).map{Array.new(60,0)}
-  # arr=map1.map
 
-  def put #読み込む
+  def put (objects)#読み込む
     map1 = Mapfile.new(1)
     arr = Array.new(100).map{Array.new(60,0)}
     arr=map1.map
-    objects=[]
 
     60.times do |i|
       100.times do |j|
@@ -36,12 +25,6 @@ class Map
       end
     end
   end
-
+  return objects
 end
 
-Window.loop do
-  space.step(speed)
-  objects.each do |obj|
-    obj.draw
-  end
-end

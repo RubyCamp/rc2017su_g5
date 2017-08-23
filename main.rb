@@ -10,6 +10,9 @@ map = Map.new
 
 Window.width = 1000
 Window.height = 600
+space = CP::Space.new
+speed=1/60.0
+objects=[]
 
 font = Font.new(16)
 
@@ -24,10 +27,13 @@ number = course.to_i
 
 0.upto(number + 1) do |num|
   p num + 1
-
+  map.put(objects)
   # コース画面
   Window.loop do
-    map.put
+    space.step(speed)
+    objects.each do |obj|
+      obj.draw
+    end
     break if Input.key_push?(K_RETURN)
     Window.draw_font(500, 280, "Hello World", font)
 
