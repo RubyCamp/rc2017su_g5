@@ -1,9 +1,12 @@
 require 'dxruby'
+require 'chipmunk'
 
 require_relative 'filecounter'
+require_relative 'map'
 
 filecounter = Filecounter.new
 course = filecounter.counter
+map = Map.new
 
 Window.width = 1000
 Window.height = 600
@@ -24,7 +27,7 @@ number = course.to_i
 
   # コース画面
   Window.loop do
-
+    map.put
     break if Input.key_push?(K_RETURN)
     Window.draw_font(500, 280, "Hello World", font)
 
