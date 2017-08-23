@@ -19,11 +19,11 @@ class Player
   end
 
   def draw
-    puts @body.v.x.to_i
+   @body.v.x.to_i
     if Input.key_push?(K_SPACE)&&@body.v.y.to_i == 0
       @body.v.y += -100
     end
-    puts @body.v.y.to_i
+    @body.v.y.to_i
     if Input.key_down?(K_RIGHT)
       @body.v.x += 5
     elsif Input.key_down?(K_LEFT)

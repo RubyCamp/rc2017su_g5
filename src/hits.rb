@@ -8,8 +8,8 @@ class Hits
   end
 
   def _set_collision_player_and_item
-    @space.add_collision_handler(Player::DEFAULT_COLLISION_TYPE, CPStaticBox::DEFAULT_COLLISION_TYPE) do |player,box, arb|
-      @space.add_post_step_callback(box) do |_, shape|
+    @space.add_collision_handler(Player::DEFAULT_COLLISION_TYPE, Wall::DEFAULT_COLLISION_TYPE) do |player,wall, arb|
+      @space.add_post_step_callback(wall) do |_, shape|
         p "div"
       end
     end

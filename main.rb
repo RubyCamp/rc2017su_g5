@@ -10,7 +10,9 @@ course = filecounter.counter
 Window.width = 1000
 Window.height = 600
 space = CP::Space.new
+space.gravity = CP::Vec2.new(0, 100)
 speed=1/60.0
+objects=[]
 
 map = Map.new(space)
 
@@ -25,8 +27,9 @@ end
 number = course.to_i
 
 0.upto(number + 1) do |num|
-  # p num + 1
+  p num + 1
   map.put(num)
+  map.delete
 end
 
 # ボス画面

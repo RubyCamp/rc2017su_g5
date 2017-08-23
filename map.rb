@@ -24,14 +24,18 @@ class Map
     @space = space
   end
 
+  def delete
+    @objects.each do |obj|
+      obj.remove_from(@space)
+    end
+  end
+
   def put(num)#読み込む
     map1 = Mapfile.new(num)
     arr = Array.new(100).map{Array.new(60,0)}
     arr=map1.map
-    objects=[]
+    @objects=[]
     # space = CP::Space.new
-    objects.clear
-
     player = Player.new(100,540, 16) #space)
 
     60.times do |i|
@@ -41,23 +45,23 @@ class Map
         when 0 then
           #null
         when 1 then
-          objects << Wall.new(j*10, i*10 ,@space)
+          @objects << Wall.new(j*10, i*10 ,@space)
         when 2 then
-          objects << Goal.new(j*10, i*10 ,@space)
+          @objects << Goal.new(j*10, i*10 ,@space)
         when 2 then
-          objects << Switch1.new(j*10, i*10 ,@space)
+          @objects << Switch1.new(j*10, i*10 ,@space)
         end
       end
     end
 
     player.add_to(@space)
-    objects << player
+    @objects << player
 
     hits = Hits.new(@space)
 
     Window.loop do
       @space.step(SPEED)
-      objects.each do |obj|
+      @objects.each do |obj|
         obj.draw
       end
       break if Input.key_push?(K_RETURN)
