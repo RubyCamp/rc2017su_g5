@@ -36,7 +36,8 @@ score= Benchmark.measure {
 
 p score.real
 
-if score.real < 300
+# スコアの設定
+if score.real < 180
   @result = @good
 elsif
   @result = @bad
