@@ -5,9 +5,6 @@ require 'benchmark'
 require_relative 'filecounter'
 require_relative 'map'
 
-filecounter = Filecounter.new
-course = filecounter.counter
-
 Window.width = 1000
 Window.height = 600
 space = CP::Space.new
@@ -23,13 +20,11 @@ Window.loop do
   break if Input.key_push?(K_RETURN)
 end
 
-number = course.to_i
 
 result = Benchmark.measure {
-  0.upto(number + 6) do |num|
-    p num + 1
+  0.upto(5) do |num|
     map.put(num)
-    map.delete
+    # map.delete
   end
 }
 
