@@ -30,7 +30,7 @@ class Map
 
    def goal(x,y)
     return false
-      if @goalx+1==x||@goalx-1==x
+      if x<=@goalx+20&&x>=@goalx-20
         return true
       end
   end
