@@ -22,7 +22,7 @@ Window.loop do
 end
 
 score= Benchmark.measure {
-  0.upto(4) do |num|
+  1.upto(6) do |num|
     p num
     map.put(num)
     map.delete
