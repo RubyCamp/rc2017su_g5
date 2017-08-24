@@ -4,13 +4,13 @@ class Player
    DEFAULT_COLLISION_TYPE = 1
 
   def initialize(x, y, space)
-    @player = Image.load('img/character.png')
+    #@player = Image.load('img/character.png')
     @player.set_color_key([255, 255, 255])
     @jumpcount = 0
     @image_right=Image.load('cafeole_right.png')
     @image_left=Image.load('cafeole_left.png')
     m = 10
-    @r = @player.width / 2
+    @r = image_right.width / 2
     moment = CP::moment_for_circle(m, 0, @r, CP::Vec2.new(0, 0))
     @body = CP::Body.new(m, moment)
     @body.p = CP::Vec2.new(x + @r, y + @r)
