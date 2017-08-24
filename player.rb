@@ -49,6 +49,7 @@ class Player < CPCircle
 
       Window.draw_add(@body.p.x - 1.5 * @r, @body.p.y - 1.5 * @r, @player_left)
     else
+      Window.draw_add(@body.p.x - 1.5 * @r, @body.p.y - 1.5 * @r, @player_right)
       @body.v.x = 0
     end
     # Window.draw(@body.p.x - @r, @body.p.y - @r, @player)
