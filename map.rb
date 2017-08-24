@@ -69,10 +69,10 @@ class Map
     @objects << @player
 
     hits = Hits.new(@space, @player)
-    # sound = Sound.new("music/map.wav")
+    @sound = Sound.new("music/map.mid")
 
+    @sound.play
     Window.loop do
-      # sound.play
       @space.step(SPEED)
       @objects.each do |obj|
         obj.draw
@@ -82,5 +82,6 @@ class Map
 
       # Window.draw_font(500, 280, "Hello World", Font.new(16))
     end
+    @sound.stop
   end
 end

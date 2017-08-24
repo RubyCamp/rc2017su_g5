@@ -17,8 +17,8 @@ title_sound = Sound.new("music/title.wav")
 map = Map.new(space)
 
 # スタート画面
+title_sound.play
 Window.loop do
-  title_sound.play
   Window.draw(0,0,@title)
   exit if Input.key_push?(K_ESCAPE)
   break if Input.key_push?(K_RETURN)
@@ -39,14 +39,17 @@ p score.real
 # スコアの設定
 if score.real < 180
   @result = @good
+  sound = Sound.new("music/curry.wav")
 elsif
   @result = @bad
+  sound = Sound.new("music/borushiti.wav")
 end
 
 # 結果発表
+sound.play
 Window.loop do
-
   break if Input.key_push?(K_ESCAPE)
   Window.draw(0,0,@result)
 
 end
+sound.stop
