@@ -1,5 +1,6 @@
 require 'dxruby'
 require 'chipmunk'
+require 'benchmark'
 
 require_relative 'map'
 
@@ -20,17 +21,26 @@ Window.loop do
   break if Input.key_push?(K_RETURN)
 end
 
-0.upto(5) do |num|
-  p num
-  map.put(num)
-  map.delete
-end
+score= Benchmark.measure {
+  0.upto(4) do |num|
+    p num
+    map.put(num)
+    map.delete
+  end
+}
 
+p score.real
+
+if score.real < 120
+  result = "カレーができた！"
+elsif
+  result = "ボルシチができてしまった…"
+end
 
 # 結果発表
 Window.loop do
 
   break if Input.key_push?(K_ESCAPE)
-  Window.draw_font(500, 280, "結果発表", font)
+  Window.draw_font(500, 280, result, font)
 
 end
