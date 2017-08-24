@@ -8,8 +8,8 @@ Window.width = 1000
 Window.height = 600
 space = CP::Space.new
 space.gravity = CP::Vec2.new(0, 100)
-speed=1/60.0
-objects=[]
+
+title_sound = Sound.new("music/title.wav")
 
 map = Map.new(space)
 
@@ -17,9 +17,11 @@ font = Font.new(16)
 
 # スタート画面
 Window.loop do
+  title_sound.play
   exit if Input.key_push?(K_ESCAPE)
   break if Input.key_push?(K_RETURN)
 end
+title_sound.stop
 
 score= Benchmark.measure {
   1.upto(6) do |num|
@@ -31,7 +33,7 @@ score= Benchmark.measure {
 
 p score.real
 
-if score.real < 120
+if score.real < 300
   result = "カレーができた！"
 elsif
   result = "ボルシチができてしまった…"
