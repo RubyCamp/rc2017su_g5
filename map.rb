@@ -13,6 +13,7 @@ Window.width = 1000
 Window.height = 600
 
 
+
 @space = CP::Space.new
 
 class Map
@@ -40,6 +41,8 @@ class Map
   end
 
   def put(num)#読み込む
+    @background = Image.load("img/#{num}.png")
+
     map1 = Mapfile.new(num)
     arr = Array.new(100).map{Array.new(60, 0)}
     arr=map1.map
@@ -74,6 +77,7 @@ class Map
     @sound.play
     Window.loop do
       @space.step(SPEED)
+      # Window.draw(0,0,@background)
       @objects.each do |obj|
         obj.draw
       end
