@@ -1,6 +1,7 @@
 require_relative 'map'
 
 class Player
+   DEFAULT_COLLISION_TYPE = 1
 
   def initialize(x, y, space)
     @player = Image.load('img/character.png')

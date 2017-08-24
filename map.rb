@@ -45,7 +45,7 @@ class Map
     @goalx=0;
     @goaly=0;
 
-    player = Player.new(100,540, 16) #space)
+    player = Player.new(100,540, @space)
 
     60.times do |i|
       100.times do |j|
@@ -65,7 +65,6 @@ class Map
       end
     end
 
-    player.add_to(@space)
     objects << player
 
     hits = Hits.new(@space)
@@ -76,7 +75,7 @@ class Map
       objects.each do |obj|
         obj.draw
       end
-      break if goal(player.goals)
+      break if goal(*player.goals)
     end
   end
 
