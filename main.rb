@@ -10,6 +10,7 @@ space = CP::Space.new
 space.gravity = CP::Vec2.new(0, 100)
 
 title_sound = Sound.new("music/title.wav")
+@title=Image.load('img/curry_title.png')
 
 map = Map.new(space)
 
@@ -18,6 +19,7 @@ font = Font.new(16)
 # スタート画面
 Window.loop do
   title_sound.play
+  Window.draw(0,0,@title)
   exit if Input.key_push?(K_ESCAPE)
   break if Input.key_push?(K_RETURN)
 end
