@@ -26,7 +26,7 @@ end
 
 number = course.to_i
 
-0.upto(number + 4) do |num|
+0.upto(number + 5) do |num|
   p num + 1
   map.put(num)
   map.delete
