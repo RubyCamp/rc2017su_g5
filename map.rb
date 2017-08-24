@@ -22,7 +22,6 @@ class Map
 
   def initialize(space)
     @space = space
-    player=Player.new()
 
   end
 
