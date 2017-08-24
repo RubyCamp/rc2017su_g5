@@ -29,10 +29,10 @@ class Map
   
 
    def goal(x,y)
-    return false
-      if x<=@goalx+20&&x>=@goalx-20
+      if x<=@goalx+20&&x>=@goalx-20&&y<=@goaly+20&&y>=@goaly-20
         return true
       end
+      return false
   end
 
   def put(num)#読み込む
