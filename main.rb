@@ -1,14 +1,14 @@
 require 'dxruby'
 require 'chipmunk'
-require 'benchmark'
 
-require_relative 'filecounter'
 require_relative 'map'
 
 Window.width = 1000
 Window.height = 600
 space = CP::Space.new
 space.gravity = CP::Vec2.new(0, 100)
+speed=1/60.0
+objects=[]
 
 map = Map.new(space)
 
@@ -20,21 +20,17 @@ Window.loop do
   break if Input.key_push?(K_RETURN)
 end
 
+0.upto(5) do |num|
+  p num
+  map.put(num)
+  map.delete
+end
 
-result = Benchmark.measure {
-  0.upto(5) do |num|
-    map.put(num)
-    # map.delete
-  end
-}
-
-aaa = "結果発表!!"
-puts result.real
 
 # 結果発表
 Window.loop do
 
   break if Input.key_push?(K_ESCAPE)
-  Window.draw_font(500, 280, aaa, font)
+  Window.draw_font(500, 280, "結果発表", font)
 
 end

@@ -30,9 +30,6 @@ objects << player
 
 hits = Hits.new(space)
 
-
-#hits=Hits.new(space)
-
 Window.loop do
   break if Input.key_push?(K_ESCAPE)
 

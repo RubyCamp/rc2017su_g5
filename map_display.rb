@@ -2,10 +2,10 @@ require 'dxruby'
 require 'chipmunk'
 
 class Wall
-    DEFAULT_COLLISION_TYPE = 1
+  DEFAULT_COLLISION_TYPE = 1
   def initialize(x, y, space)
     @x, @y = x, y
-    @image =Image.load('wall.png')
+    @image =Image.load('img/wall.png')
     @body = CP::StaticBody.new
     @body.p = CP::Vec2.new(0, 0)
     verts = [
@@ -35,7 +35,7 @@ end
 class Goal
   def initialize(x, y, space)
     @x, @y = x, y
-    @image =Image.load('goal.png')
+    @image =Image.load('img/goal.png')
     @body = CP::StaticBody.new
     @body.p = CP::Vec2.new(0, 0)
     verts = [
@@ -63,7 +63,7 @@ class Switch1
 
   def initialize(x, y, space)
     @x, @y = x, y
-    @image =Image.load('switch1.png')
+    @image =Image.load('img/switch1.png')
     @body = CP::StaticBody.new
     @body.p = CP::Vec2.new(0, 0)
     verts = [
