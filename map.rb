@@ -3,7 +3,7 @@ require 'chipmunk'
 require_relative 'src/lib/cp_static_box'
 require_relative 'src/lib/cp_base'
 require_relative 'src/lib/cp_circle'
-require_relative 'src/lib/player'
+require_relative 'player'
 require_relative 'src/hits'
 
 require_relative 'mapfile'
@@ -14,6 +14,7 @@ Window.height = 600
 
 
 @space = CP::Space.new
+
 
 class Map
 
@@ -75,7 +76,7 @@ class Map
       objects.each do |obj|
         obj.draw
       end
-      break if goal(@body.p.x,@body.p.y)
+      break if goal(player.goals)
     end
   end
 
