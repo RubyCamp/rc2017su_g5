@@ -26,7 +26,7 @@ end
 number = course.to_i
 
 result = Benchmark.measure {
-  0.upto(number + 5) do |num|
+  0.upto(number + 6) do |num|
     p num + 1
     map.put(num)
     map.delete
